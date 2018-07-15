@@ -1,0 +1,66 @@
+﻿@model MyCalculator.Models.CalculatorModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <h4>CalculatorModel</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" style="background-color:@Model.BandAColor">
+                @Html.LabelFor(model => model.BandAColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EnumDropDownListFor(x => x.BandAColor, "Select Band A", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BandAColor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="background-color:@Model.BandBColor">
+                @Html.LabelFor(model => model.BandBColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EnumDropDownListFor(x => x.BandBColor, "Select Band B", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BandBColor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group" style="background-color:@Model.BandCColor">
+                @Html.LabelFor(model => model.BandCColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EnumDropDownListFor(x => x.BandCColor, "Select Band C", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BandCColor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group" style="background-color:@Model.BandDColor">
+                @Html.LabelFor(model => model.BandDColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EnumDropDownListFor(x => x.BandDColor, "Select Band D", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BandDColor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h4>
+                    Ohm Result: @ViewBag.Message
+                </h4>
+            </div>
+        </div>
+    }
+
+</body>
+</html>
